@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/body_flipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/setup_layout_one"
+        layout="@layout/setup_one" />
+
+    <include
+        android:id="@+id/setup_layout_two"
+        layout="@layout/setup_two" />
+    <include
+        android:id="@+id/setup_layout_three"
+        layout="@layout/setup_three" />
+    <include
+        android:id="@+id/setup_layout_four"
+        layout="@layout/setup_four" />
+
+</ViewFlipper>

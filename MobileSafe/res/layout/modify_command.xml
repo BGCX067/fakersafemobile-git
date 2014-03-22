@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/set_color"
+    android:orientation="vertical" >
+
+    <include layout="@layout/item_click_header" >
+    </include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="5.0dip"
+        android:background="@drawable/shape_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="获取位置"
+                android:textColor="@color/setting_item_clolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/location_command_edit"
+                style="@style/null_edittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="获取手机位置指令" />
+
+            <requestFocus />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/set_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="数据清空"
+                android:textColor="@color/setting_item_clolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/delete_command_edit"
+                style="@style/null_edittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="恢复手机出厂设置指令" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/set_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="锁定屏幕"
+                android:textColor="@color/setting_item_clolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/lock_command_edit"
+                style="@style/null_edittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="锁定手机屏幕" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/set_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="解锁密码"
+                android:textColor="@color/setting_item_clolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/lockpwd_command_edit"
+                style="@style/null_edittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="解锁屏幕的密码，可以为空" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/set_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="警报音乐"
+                android:textColor="@color/setting_item_clolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/alarm_command_edit"
+                style="@style/null_edittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="发出警报音乐指令" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dip" />
+    </LinearLayout>
+
+</LinearLayout>

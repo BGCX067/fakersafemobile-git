@@ -1,0 +1,141 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+
+    <!-- Version Text Style -->
+    <style name="version_text">
+        <item name="android:textColor">@color/version_text</item>
+        <item name="android:textSize">@dimen/splash_version_textsize</item>
+    </style>
+
+    <!-- Notice Dialog Style -->
+    <style name="custom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@null</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- activity变暗 -->
+    </style>
+
+    <style name="null_edittext_style" parent="@android:style/TextAppearance.Widget.EditText">
+        <item name="android:background">@null</item>
+        <item name="android:drawSelectorOnTop">@null</item>
+        <item name="android:drawableBottom">@null</item>
+        <item name="android:paddingLeft">5dip</item>
+    </style>
+    
+    <!-- Main GridView Item Text Style -->
+    <style name="main_gv_item_text">
+        <item name="android:textColor">@color/main_gv_item_text</item>
+        <item name="android:textSize">@dimen/main_gridview_itemtextsize</item>
+    </style>
+    
+    <!-- ClearEdit Style -->
+    <style name="clearedit_password_style">
+        <item name="android:background">@drawable/login_edittext_bg</item>
+        <item name="android:drawableLeft">@drawable/account_icon</item>
+        <item name="android:drawableRight">@drawable/delete_selector</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+    <style name="clearedit_text_style" parent="clearedit_password_style">
+        <item name="android:drawableLeft">@drawable/icon_user</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <!-- Setup title text Style -->
+    <style name="setup_title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_marginTop">5dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Setup context text style -->
+    <style name="setup_context_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textColor">@color/dialog_text</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Setupone imagestar style -->
+    <style name="setup_imagestar_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:src">@android:drawable/btn_star_big_on</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
+    <style name="image_start_online_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:src">@android:drawable/presence_online</item>
+    </style>
+    
+    <style name="image_start_offline_style" parent="image_start_online_style">
+        <item name="android:src">@android:drawable/presence_invisible</item>
+    </style>
+    
+    <style name="hightools_item_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dialog_text</item>
+    </style>
+    
+    <style  name="hightools_item_intoicon_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">10dip</item>
+        <item name="android:src">@drawable/into_icon</item>
+    </style>
+
+    <style name="communicate_tab_bottom">
+        <item name="android:textSize">@dimen/bottom_tab_font_size</item>
+        <item name="android:textColor">@color/tab_text_color</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/tab_btn_bg</item>
+        <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background_color" >
+
+    <com.faker.mobilesafe.view.ui.ClearEditText
+        android:id="@+id/lost_procted_login_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="60dp"
+        style="@style/clearedit_text_style"
+        android:hint="@string/login_name_hint"
+        android:singleLine="true" />
+
+    <requestFocus />
+
+    <com.faker.mobilesafe.view.ui.ClearEditText
+        android:id="@+id/lost_procted_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lost_procted_login_name"
+        android:layout_alignRight="@+id/lost_procted_login_name"
+        android:layout_below="@+id/lost_procted_login_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        style="@style/clearedit_password_style"
+        android:hint="@string/login_password_hint"
+        android:singleLine="true" >
+    </com.faker.mobilesafe.view.ui.ClearEditText>
+
+    <com.faker.mobilesafe.view.ui.ClearEditText
+        android:id="@+id/lost_procted_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lost_procted_login_password"
+        android:layout_alignRight="@+id/lost_procted_login_password"
+        android:layout_below="@+id/lost_procted_login_password"
+        android:layout_marginTop="15dp"
+        android:hint="@string/login_password_confirm_hint"
+        style="@style/clearedit_password_style"
+        android:singleLine="true" >
+    </com.faker.mobilesafe.view.ui.ClearEditText>
+
+    <Button
+        android:id="@+id/lost_protected_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lost_procted_login_password"
+        android:layout_alignRight="@+id/lost_procted_login_password"
+        android:layout_below="@+id/lost_procted_password_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_button_bg"
+        android:enabled="false"
+        android:text="@string/login_first_register"
+        android:textSize="20sp" />
+
+</RelativeLayout>

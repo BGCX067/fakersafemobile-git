@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="version_text">#B4C3BD</color>
+    <color name="white_color">#FFFFFFFF</color>
+    <color name="hinttext_color">#FFC3C4C3</color>
+    <color name="main_title">#FF73B2B5</color>
+    <color name="backgroundcolor">#ffD6D3D6</color>
+    <color name="dialog_text">#ff55625A</color>
+    <color name="activity_background_color">#ff95CAE4</color>
+    <color name="set_color">#ffEFEFEF</color>
+    <color name="header_btn_color">#ffFFFFE1</color>
+    <color name="setting_item_clolor">#ff4B5059</color>
+    
+    <color name="listview_default_color">#FFF2F2F2</color>
+    <color name="listview_pressed_color">#FF98CAF0</color>
+    
+</resources>

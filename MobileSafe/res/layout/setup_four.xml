@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <TextView
+        android:id="@+id/setupfour_title"
+        style="@style/setup_title_style"
+        android:text="@string/setupfour_title" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/on_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@id/setupfour_title"
+        android:background="@android:color/darker_gray" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/setupfour_context_hint"
+        style="@style/setup_context_style"
+        android:layout_below="@id/on_line"
+        android:layout_marginTop="10dip"
+        android:text="@string/setupfour_context_hint" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setupfour_context_hint"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:onClick="hideLost"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/hide_lost"
+            style="@style/setup_context_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:text="@string/setupfour_text" />
+
+        <ImageView
+            android:id="@+id/hide_lost_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/switch_off_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/setup_context_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:text="设置指令号码:" />
+
+        <com.faker.mobilesafe.view.ui.ClearEditText
+            android:id="@+id/reload_command"
+            style="@style/clearedit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView style="@style/image_start_offline_style" />
+
+        <ImageView style="@style/image_start_offline_style" />
+
+        <ImageView style="@style/image_start_offline_style" />
+
+        <ImageView style="@style/image_start_online_style" />
+    </LinearLayout>
+
+</RelativeLayout>

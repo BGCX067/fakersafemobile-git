@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/set_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/header_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/modify_moudle_back"
+            android:layout_width="50dip"
+            android:layout_height="30dip"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/back_btn_selector"
+            android:gravity="center"
+            android:onClick="onBack"
+            android:text="返回"
+            android:textColor="@color/dialog_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dip"
+            android:gravity="center"
+            android:text="修改防盗模块名称"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.faker.mobilesafe.view.ui.ClearEditText
+            android:id="@+id/modify_name_editor"
+            android:layout_width="match_parent"
+            android:layout_height="100dip"
+            android:layout_gravity="center"
+            android:layout_margin="10dip"
+            android:background="@drawable/login_edittext_bg"
+            android:drawableRight="@drawable/delete_selector" />
+        <requestFocus />
+
+        <TextView
+            android:id="@+id/name_count_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dip"
+            android:layout_marginTop="80dip"
+            android:gravity="right"
+            android:text="10" />
+    </FrameLayout>
+
+</LinearLayout>

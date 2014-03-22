@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 按下状态 -->
+    <item android:drawable="@drawable/main_gvitem_selected_bg" android:state_pressed="true"></item>
+
+    <!-- 获得焦点 -->
+    <item android:drawable="@drawable/main_gvitem_bg" android:state_focused="true"></item>
+
+    <!-- 默认状态 -->
+    <item android:drawable="@drawable/main_gvitem_bg"></item>
+
+</selector>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/header_bg"
+        android:gravity="center"
+        android:text="黑名单"
+        android:textColor="@color/white_color"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="3.0dip"
+                android:background="@drawable/shape_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/blacknum_add_from_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="40dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dip"
+                        android:text="@string/communicate_blacknum_from_call"
+                        android:textColor="@color/dialog_text"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dip"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:src="@drawable/into_icon" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/set_color" />
+
+                <LinearLayout
+                    android:id="@+id/blacknum_add_from_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="40dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dip"
+                        android:text="@string/communicate_blacknum_from_msglist"
+                        android:textColor="@color/dialog_text"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dip"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:src="@drawable/into_icon" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/set_color" />
+
+                <LinearLayout
+                    android:id="@+id/blacknum_add_from_custom"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="40dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dip"
+                        android:text="@string/communicate_blacknum_from_custom"
+                        android:textColor="@color/dialog_text"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dip"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:src="@drawable/into_icon" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/set_color" />
+
+                <LinearLayout
+                    android:id="@+id/blacknum_add_from_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dip"
+                        android:layout_height="40dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dip"
+                        android:text="@string/communicate_blacknum_from_contacts"
+                        android:textColor="@color/dialog_text"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dip"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:src="@drawable/into_icon" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/look_up_black"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:background="@drawable/shape_bg"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="4"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dip"
+                    android:text="@string/communicate_blacknum_lookup"
+                    android:textColor="@color/dialog_text"
+                    android:textSize="16sp" />
+                
+                <TextView
+                    android:id="@+id/black_number_count"
+                    android:layout_width="0dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingLeft="5dip"
+                    android:text="0"
+                    android:textColor="@color/hinttext_color"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dip"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:src="@drawable/into_icon" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/set_color"
+    android:orientation="vertical" >
+
+    <include layout="@layout/item_click_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/shape_bg" >
+
+        <TextView
+            style="@style/hightools_item_text_style"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:text="IP自动拨号" />
+
+        <TextView
+            android:id="@+id/ip_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:text="未开启" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/ip_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:layout_toLeftOf="@id/ip_state"
+            android:src="@drawable/switch_off_normal" />
+    </RelativeLayout>
+
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/shape_bg" >
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/hightools_item_text_style"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_centerVertical="true"
+            android:text="IP号码" />
+
+        <EditText
+            android:id="@+id/ip_number"
+            style="@style/null_edittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/text"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dip"
+            android:hint="添加ip号码" />
+    </RelativeLayout>
+
+</LinearLayout>
