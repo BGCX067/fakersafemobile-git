@@ -96,7 +96,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 			Toast(this, "5", 1);
 			break;
 		case 6:// 任务管理
-			Toast(this, "6", 1);
+			intent = new Intent(this, TaskManagerActivity.class);
+			startActivity(intent);
 			break;
 		case 7:// 设置中心
 			intent = new Intent(this, SettingsActivity.class);

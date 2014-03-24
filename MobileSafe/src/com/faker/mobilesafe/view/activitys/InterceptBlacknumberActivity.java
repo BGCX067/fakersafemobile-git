@@ -57,8 +57,12 @@ public class InterceptBlacknumberActivity extends BaseActivity implements
 			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_msg: // 从信息列表添加
+			intent = new Intent(this,MsgLogActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_custom: // 手动添加
+			intent = new Intent(this,BlackNumInputActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_contact: // 从通讯录添加
 			intent = new Intent(this, BlacknumFromConstactActivity.class);

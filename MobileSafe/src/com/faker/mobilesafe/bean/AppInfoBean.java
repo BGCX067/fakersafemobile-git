@@ -1,7 +1,6 @@
 package com.faker.mobilesafe.bean;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
 public class AppInfoBean {
 
