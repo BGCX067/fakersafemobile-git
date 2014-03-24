@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="55dip"
+    android:background="@drawable/listbg_normal"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <ImageView
+        android:id="@+id/appicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="4dip"
+        android:layout_toRightOf="@id/appicon"
+        android:text="app"
+        android:textColor="#ff000000"
+        android:textSize="16.0dip" />
+
+    <TextView
+        android:id="@+id/memorysize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/appname"
+        android:layout_marginTop="2dip"
+        android:textColor="#88000000"
+        android:text="占用内存：78KB"
+        android:layout_below="@id/appname" >
+    </TextView>
+
+    <ImageView
+        android:id="@+id/clear_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:src="@drawable/checkbox_unchecked" >
+    </ImageView>
+
+</RelativeLayout>
