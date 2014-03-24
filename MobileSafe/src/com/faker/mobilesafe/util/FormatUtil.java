@@ -1,8 +1,11 @@
 package com.faker.mobilesafe.util;
 
+import android.annotation.SuppressLint;
+import java.sql.Date;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 
-public class SizeFormatUtil {
+public class FormatUtil {
 
 	// 23.87MB 00.87MB/KB byte
 	public static String formatByte(long data) {
@@ -18,5 +21,18 @@ public class SizeFormatUtil {
 		} else {
 			return "无法计算";
 		}
+	}
+
+	/**
+	 * 格式化时间
+	 * 
+	 * @param time
+	 * @return [yy/MM/dd HH:MM]
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public static String formatTime(long time) {
+		SimpleDateFormat formatter = new SimpleDateFormat("yy/MM/dd HH:mm");
+		Date date = new Date(time);
+		return "[" + formatter.format(date) + "]";
 	}
 }

@@ -2,10 +2,12 @@ package com.faker.mobilesafe.receiver;
 
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.dao.BlackNumberDao;
+import com.faker.mobilesafe.dao.MsgRecordDao;
 import com.faker.mobilesafe.deal.AdminService;
 import com.faker.mobilesafe.deal.ConstConfig;
 import com.faker.mobilesafe.deal.GPSService;
 import com.faker.mobilesafe.deal.SafeSharedpreference;
+import com.faker.mobilesafe.util.FormatUtil;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -40,12 +42,17 @@ public class SMSReceiver extends BroadcastReceiver {
 			if (bundle != null) {
 				Object[] pdus = (Object[]) bundle.get("pdus");
 				BlackNumberDao dao = new BlackNumberDao(context);
+				MsgRecordDao msgDao = new MsgRecordDao(context);
 				for (Object pdu : pdus) {
 					SmsMessage message = SmsMessage.createFromPdu((byte[]) pdu);
 					String number = message.getOriginatingAddress();
 					Log.i("test", number);
 					if (dao.isBlackNumber(number)) {
 						// 是黑名单号码，则拦截,并将拦截信息存到数据库中
+						String content = message.getDisplayMessageBody();
+						String time = FormatUtil.formatTime(System
+								.currentTimeMillis());
+						msgDao.addRecord(number, content, time);
 						setResultData(null);
 						abortBroadcast();
 					}

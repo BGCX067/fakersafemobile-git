@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
-    android:background="@color/backgroundcolor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor" >
 
     <FrameLayout
         android:id="@android:id/tabcontent"
@@ -32,18 +32,20 @@
             android:id="@+id/radio_button0"
             style="@style/communicate_tab_bottom"
             android:checked="true"
-            android:drawableTop="@drawable/intercept_calltab_bg"
-            android:text="@string/communicate_call_history" />
+            android:drawableTop="@drawable/intercept_blacknumetab_bg"
+            android:text="@string/communicate_blacknum_history" />
+
         <RadioButton
             android:id="@+id/radio_button1"
             style="@style/communicate_tab_bottom"
-            android:drawableTop="@drawable/intercept_messagetab_bg"
-            android:text="@string/communicate_message_history" />
+            android:drawableTop="@drawable/intercept_calltab_bg"
+            android:text="@string/communicate_call_history" />
+
         <RadioButton
             android:id="@+id/radio_button2"
             style="@style/communicate_tab_bottom"
-            android:drawableTop="@drawable/intercept_blacknumetab_bg"
-            android:text="@string/communicate_blacknum_history" />
+            android:drawableTop="@drawable/intercept_messagetab_bg"
+            android:text="@string/communicate_message_history" />
     </RadioGroup>
 
 </TabHost>

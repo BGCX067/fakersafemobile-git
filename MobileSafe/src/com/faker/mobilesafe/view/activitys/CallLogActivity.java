@@ -11,7 +11,6 @@ import com.faker.mobilesafe.dao.BlackNumberDao;
 import com.faker.mobilesafe.dao.PhoneAddressQueryDao;
 import com.faker.mobilesafe.view.ui.adapter.CallLogListAdapter;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.database.Cursor;

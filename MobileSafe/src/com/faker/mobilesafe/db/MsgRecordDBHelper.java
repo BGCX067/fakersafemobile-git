@@ -26,7 +26,7 @@ public class MsgRecordDBHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("create table "
 				+ dbName
-				+ "(_id integer primary key autoincrement,number text,address text,content text,time text)");
+				+ "(_id integer primary key autoincrement,number text,content text,time text)");
 	}
 
 	@Override

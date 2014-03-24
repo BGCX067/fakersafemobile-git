@@ -31,6 +31,11 @@ public class InterceptBlacknumberActivity extends BaseActivity implements
 		initUI();
 	}
 
+	public void onBack(View v) {
+		onBackPressed();
+		finish();
+	}
+
 	private void initUI() {
 		ly_from_call = getView(R.id.blacknum_add_from_call);
 		ly_from_msg = getView(R.id.blacknum_add_from_msg);
@@ -53,15 +58,15 @@ public class InterceptBlacknumberActivity extends BaseActivity implements
 		Intent intent;
 		switch (id) {
 		case R.id.blacknum_add_from_call: // 从通话记录添加
-			intent = new Intent(this,CallLogActivity.class);
+			intent = new Intent(this, CallLogActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_msg: // 从信息列表添加
-			intent = new Intent(this,MsgLogActivity.class);
+			intent = new Intent(this, MsgLogActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_custom: // 手动添加
-			intent = new Intent(this,BlackNumInputActivity.class);
+			intent = new Intent(this, BlackNumInputActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.blacknum_add_from_contact: // 从通讯录添加

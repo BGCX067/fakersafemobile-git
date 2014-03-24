@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.TaskInfoBean;
-import com.faker.mobilesafe.util.SizeFormatUtil;
+import com.faker.mobilesafe.util.FormatUtil;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -137,7 +137,7 @@ public class TaskManagerAdapter extends BaseAdapter {
 		holder.app_icon.setImageBitmap(appIcon);
 		holder.app_name.setText(appName);
 		holder.memorySize.setText("占用内存:"
-				+ SizeFormatUtil.formatByte(memorySize * 1024));
+				+ FormatUtil.formatByte(memorySize * 1024));
 		if (bean.isChecked()
 				&& !bean.getPackageName().equals(context.getPackageName())) {
 			holder.checkBox.setImageResource(R.drawable.checkbox_checked);

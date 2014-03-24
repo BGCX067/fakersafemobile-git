@@ -47,6 +47,11 @@ public class InterceptCallrecordActivity extends Activity implements
 		delete_all.setOnClickListener(this);
 	}
 
+	public void onBack(View v){
+		onBackPressed();
+		finish();
+	}
+	
 	@Override
 	protected void onNewIntent(Intent intent) {
 		// TODO Auto-generated method stub

@@ -5,14 +5,32 @@
     android:background="@color/backgroundcolor"
     android:orientation="vertical" >
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dip"
-        android:background="@drawable/header_bg"
-        android:gravity="center"
-        android:text="电话拦截记录"
-        android:textColor="@color/white_color"
-        android:textSize="20sp" />
+        android:background="@drawable/header_bg" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="电话拦截记录"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="50dip"
+            android:layout_height="30dip"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/back_btn_selector"
+            android:gravity="center"
+            android:onClick="onBack"
+            android:text="返回"
+            android:textColor="@color/dialog_text"
+            android:textSize="16sp" />
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
