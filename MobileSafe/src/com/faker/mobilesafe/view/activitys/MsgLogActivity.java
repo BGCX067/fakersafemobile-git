@@ -118,9 +118,11 @@ public class MsgLogActivity extends Activity implements OnClickListener,
 			if (c1.moveToFirst()) {
 				bean.setNumber(c1.getString(0));
 			}
+			c1.close();
 //			Log.i("lichfaker", bean.toString());
 			msgLists.add(bean);
 		}
+		c.close();
 	}
 
 }

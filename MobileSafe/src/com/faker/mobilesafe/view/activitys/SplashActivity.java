@@ -28,7 +28,7 @@ public class SplashActivity extends BaseActivity {
 	private MyProgressDialog pd;
 	private PhoneAddressQueryDao phone_query;
 	private Thread thread;
-	
+
 	private final static int INIT_DATABASE_ERROR = 100;
 	public static final int INIT_DATABASE_SUCCESS = 101;
 
@@ -93,7 +93,6 @@ public class SplashActivity extends BaseActivity {
 
 	private Handler handler = new Handler() {
 
-
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -125,7 +124,8 @@ public class SplashActivity extends BaseActivity {
 				dir.mkdirs();
 				AssetManager am = context.getAssets();
 				String[] partFileList = am.list("");
-				FileUtil.mergeFile(context, partFileList, dir, "address.db");
+				FileUtil.mergeZipFile(context, partFileList, dir, dir,
+						"address.db");
 				File file = new File(dir, "address.db");
 				if (file.exists()) {
 					Message msg = new Message();
@@ -144,21 +144,21 @@ public class SplashActivity extends BaseActivity {
 		}
 
 	}
-	
-	private final class MyProgressDialog extends ProgressDialog{
+
+	private final class MyProgressDialog extends ProgressDialog {
 
 		public MyProgressDialog(Context context) {
 			super(context);
 			setTitle("正在更新数据库...");
 			setProgressStyle(STYLE_SPINNER);
 		}
-		
+
 		@Override
 		public void onBackPressed() {
 			// TODO Auto-generated method stub
 			super.onBackPressed();
 			finish();
 		}
-		
+
 	}
 }
