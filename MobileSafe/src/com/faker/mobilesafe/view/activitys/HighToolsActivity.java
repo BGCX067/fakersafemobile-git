@@ -39,4 +39,14 @@ public class HighToolsActivity extends Activity {
 		Intent intent = new Intent(this, PhoneQueryActivity.class);
 		startActivity(intent);
 	}
+
+	/**
+	 * 常用号码
+	 * 
+	 * @param v
+	 */
+	public void common_number(View v) {
+		Intent intent = new Intent(this, CommonNumberActivity.class);
+		startActivity(intent);
+	}
 }

@@ -100,4 +100,19 @@ public class FileUtil {
 			dst.delete();
 		}
 	}
+	
+	public static void moveFile(InputStream is,File dirTo,String filename) throws Exception{
+		File outFile = new File(dirTo, filename);
+		if(!outFile.exists()){
+			FileOutputStream fos = new FileOutputStream(outFile);
+			byte[] buffer = new byte[1024];
+			int len = -1;
+			while((len = is.read(buffer)) != -1){
+				fos.write(buffer, 0, len);
+			}
+			is.close();
+			fos.flush();
+			fos.close();
+		}
+	}
 }

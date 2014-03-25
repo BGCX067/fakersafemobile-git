@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 			Intent intent = new Intent(this, BlackNumberService.class);
 			startService(intent);
 		}
+		
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.faker.mobilesafe.view.activitys;
 
 import java.io.File;
+import java.io.InputStream;
 
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.dao.PhoneAddressQueryDao;
@@ -23,7 +24,7 @@ import android.widget.TextView;
 public class SplashActivity extends BaseActivity {
 
 	// 延迟跳转的时间，单位毫秒
-	private final static long SPLASH_DELAY_TIME = 2000;
+	private final static long SPLASH_DELAY_TIME = 200;
 	private Context context;
 	private MyProgressDialog pd;
 	private PhoneAddressQueryDao phone_query;
@@ -52,10 +53,11 @@ public class SplashActivity extends BaseActivity {
 				}
 			}
 		}, SPLASH_DELAY_TIME);
+
 	}
 
 	/**
-	 * 从服务器下载数据库文件并更新
+	 * 数据库文件更新
 	 */
 	private void updateDB() {
 		if (Environment.getExternalStorageState().equals(
@@ -123,17 +125,17 @@ public class SplashActivity extends BaseActivity {
 				File dir = new File(phone_query.getDirpath());
 				dir.mkdirs();
 				AssetManager am = context.getAssets();
-				String[] partFileList = am.list("");
+				String[] allFiles = am.list("");
+				String[] partFileList = new String[] { allFiles[0],
+						allFiles[1], allFiles[2] };
 				FileUtil.mergeZipFile(context, partFileList, dir, dir,
 						"address.db");
-				File file = new File(dir, "address.db");
-				if (file.exists()) {
-					Message msg = new Message();
-					msg.what = INIT_DATABASE_SUCCESS;
-					handler.sendMessage(msg);
-				} else {
-					throw new Exception();
-				}
+				InputStream is = getAssets().open("commonnum.db");
+				FileUtil.moveFile(is, context.getFilesDir(), "commonnum.db");
+
+				Message msg = new Message();
+				msg.what = INIT_DATABASE_SUCCESS;
+				handler.sendMessage(msg);
 
 			} catch (Exception e) {
 				Message msg = new Message();
