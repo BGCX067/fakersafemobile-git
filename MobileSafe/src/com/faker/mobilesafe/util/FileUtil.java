@@ -50,17 +50,17 @@ public class FileUtil {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void mergeZipFile(Context c, String[] partFileList, File dir,File unzipDir,
-			String filename) throws IOException {
+	public static void mergeZipFile(Context c, String[] partFileList, File dir,
+			File unzipDir, String filename) throws IOException {
 		if (dir.exists()) {
-			File dst = new File(dir, filename+".zip");
+			File dst = new File(dir, filename + ".zip");
 			dst.createNewFile();
 			OutputStream out = new FileOutputStream(dst);
 			byte[] buffer = new byte[1024];
 			InputStream in;
 			int readLen = 0;
-			Log.i("lichfaker", partFileList.length+"");
-			for (int i = 0; i < partFileList.length - 3; i++) {
+			Log.i("lichfaker", partFileList.length + "");
+			for (int i = 0; i < partFileList.length; i++) {
 				// 获得输入流 ,注意文件的路径
 				in = c.getAssets().open(partFileList[i]);
 				while ((readLen = in.read(buffer)) != -1) {
@@ -71,24 +71,26 @@ public class FileUtil {
 			}
 			// 把所有小文件都进行写操作后才关闭输出流，这样就会合并为一个文件了
 			out.close();
-			
+
 			// 解压
-			ZipFile zipFile = new ZipFile(dst);  // 创建zip文件对象
-			//  得到zip文件条目枚举对象
-			Enumeration<ZipEntry> zipEnumeration = (Enumeration<ZipEntry>) zipFile.entries();
-			while(zipEnumeration.hasMoreElements()){
+			ZipFile zipFile = new ZipFile(dst); // 创建zip文件对象
+			// 得到zip文件条目枚举对象
+			Enumeration<ZipEntry> zipEnumeration = (Enumeration<ZipEntry>) zipFile
+					.entries();
+			while (zipEnumeration.hasMoreElements()) {
 				// 得到当前条目
 				ZipEntry entry = zipEnumeration.nextElement();
-				String entryName = new String(entry.getName().getBytes("ISO8859_1"));
+				String entryName = new String(entry.getName().getBytes(
+						"ISO8859_1"));
 				// 若当前条目为目录则创建
-				if(entry.isDirectory()){
+				if (entry.isDirectory()) {
 					new File(unzipDir, entryName).mkdir();
-				}else{
+				} else {
 					in = zipFile.getInputStream(entry);
-					out = new FileOutputStream(new File(unzipDir,entryName));
+					out = new FileOutputStream(new File(unzipDir, entryName));
 					byte[] buffer1 = new byte[1024];
 					int len = -1;
-					while((len = in.read(buffer1)) != -1){
+					while ((len = in.read(buffer1)) != -1) {
 						out.write(buffer1, 0, len);
 					}
 					in.close();
@@ -100,14 +102,15 @@ public class FileUtil {
 			dst.delete();
 		}
 	}
-	
-	public static void moveFile(InputStream is,File dirTo,String filename) throws Exception{
+
+	public static void moveFile(InputStream is, File dirTo, String filename)
+			throws Exception {
 		File outFile = new File(dirTo, filename);
-		if(!outFile.exists()){
+		if (!outFile.exists()) {
 			FileOutputStream fos = new FileOutputStream(outFile);
 			byte[] buffer = new byte[1024];
 			int len = -1;
-			while((len = is.read(buffer)) != -1){
+			while ((len = is.read(buffer)) != -1) {
 				fos.write(buffer, 0, len);
 			}
 			is.close();
