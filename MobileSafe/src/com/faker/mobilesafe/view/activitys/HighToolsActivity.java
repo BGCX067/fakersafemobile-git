@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.faker.mobilesafe.R;
+import com.faker.mobilesafe.deal.ConstConfig;
+import com.faker.mobilesafe.deal.SafeSharedpreference;
 
 public class HighToolsActivity extends Activity {
 
@@ -48,5 +50,21 @@ public class HighToolsActivity extends Activity {
 	public void common_number(View v) {
 		Intent intent = new Intent(this, CommonNumberActivity.class);
 		startActivity(intent);
+	}
+
+	/**
+	 * 程序锁
+	 * 
+	 * @param v
+	 */
+	public void lock_pattern(View v) {
+		boolean is_lock = SafeSharedpreference.getBoolean(this, ConstConfig.LOCK_PATTERN, false);
+		if(!is_lock){
+			Intent intent = new Intent(this, GuideGesturePasswordActivity.class);
+			startActivity(intent);
+		}else{
+			Intent intent = new Intent(this, UnlockGesturePasswordActivity.class);
+			startActivity(intent);
+		}
 	}
 }

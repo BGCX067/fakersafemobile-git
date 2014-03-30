@@ -3,6 +3,8 @@ package com.faker.mobilesafe.view.activitys;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ListActivity;
+import android.widget.TextView;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.MsgRecordBean;
 import com.faker.mobilesafe.dao.MsgRecordDao;
@@ -13,15 +15,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
-public class InterceptMessagerecordActivity extends Activity implements
+public class InterceptMessagerecordActivity extends ListActivity implements
 		OnClickListener {
 
-	private ListView lv_msg_record;
-	private TextView emptyView;
 	private Button deleButton;
+    private TextView emptyText;
 
 	private MsgRecordDao dao;
 
@@ -35,21 +36,21 @@ public class InterceptMessagerecordActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.intecepter_msghistory);
 		// INIT UI
-		lv_msg_record = (ListView) findViewById(R.id.msghistory_listview);
-		emptyView = (TextView) findViewById(R.id.empty);
 		deleButton = (Button) findViewById(R.id.delete_all);
+        emptyText = (TextView) findViewById(R.id.empty_text);
 
-		// INIT DATA
+        // INIT DATA
 		dao = new MsgRecordDao(this);
 		msgRecords = dao.findAll();
 		adapter = new BlackMsgAdapter(this, msgRecords);
+        setListAdapter(adapter);
 
-		lv_msg_record.setAdapter(adapter);
-		lv_msg_record.setEmptyView(emptyView);
 		if(msgRecords.size() > 0){
 			deleButton.setEnabled(true);
 		}
 		deleButton.setOnClickListener(this);
+
+        emptyText.setText("烦扰您的骚扰短信\n管家帮您智能拦截");
 	}
 
 	@Override

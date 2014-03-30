@@ -138,10 +138,10 @@ public class SplashActivity extends BaseActivity {
 				handler.sendMessage(msg);
 
 			} catch (Exception e) {
+                e.printStackTrace();
 				Message msg = new Message();
 				msg.what = INIT_DATABASE_ERROR;
 				handler.sendMessage(msg);
-				e.printStackTrace();
 			}
 		}
 

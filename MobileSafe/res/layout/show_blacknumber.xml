@@ -45,14 +45,27 @@
             android:listSelector="@drawable/listview_selector" >
         </ListView>
 
-        <TextView
+        <LinearLayout
             android:id="@+id/empty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="当前还没有黑名单"
-            android:textColor="@color/hinttext_color" />
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/content_blank_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:gravity="center"
+                android:text="当前还没有黑名单"
+                android:textColor="@color/hinttext_color" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

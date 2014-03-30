@@ -144,6 +144,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:onClick="lock_pattern"
             android:layout_height="40dip" >
 
             <TextView

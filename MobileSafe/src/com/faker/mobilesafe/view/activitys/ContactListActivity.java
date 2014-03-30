@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -20,7 +20,7 @@ public class ContactListActivity extends BaseActivity implements
 
 	private ListView listView;
 	private ContactListAdapter adapter;
-	private TextView emptyView;
+	private LinearLayout emptyView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -9,13 +9,13 @@ import com.faker.mobilesafe.view.ui.adapter.ShowBlacknumberAdapter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class ShowBlacknumberListActivity extends Activity {
 
 	private ListView listView;
-	private TextView emptyView;
+	private LinearLayout emptyView;
 	private ShowBlacknumberAdapter adapter;
 	private List<String> blackList;
 	private BlackNumberDao dao;
@@ -28,7 +28,7 @@ public class ShowBlacknumberListActivity extends Activity {
 		adapter = new ShowBlacknumberAdapter(this,blackList);
 		listView = (ListView) findViewById(R.id.lv_blacknumber);
 		listView.setAdapter(adapter);
-		emptyView = (TextView) findViewById(R.id.empty);
+		emptyView = (LinearLayout) findViewById(R.id.empty);
 		listView.setEmptyView(emptyView);
 	}
 	

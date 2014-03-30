@@ -14,4 +14,9 @@
     <color name="listview_default_color">#FFF2F2F2</color>
     <color name="listview_pressed_color">#FF98CAF0</color>
     
+    <color name="gesture_background">#ff303237</color>
+    <color name="color_hei_8">#00000000</color>
+
+    <drawable name="trans">@color/color_hei_8</drawable>
+    
 </resources>
