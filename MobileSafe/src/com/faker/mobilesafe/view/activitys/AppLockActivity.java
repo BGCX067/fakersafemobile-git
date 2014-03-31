@@ -1,6 +1,7 @@
 package com.faker.mobilesafe.view.activitys;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -53,7 +54,8 @@ public class AppLockActivity extends ListActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent (AppLockActivity.this,AppUnlockActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -61,6 +63,13 @@ public class AppLockActivity extends ListActivity {
     public void onBack(View v) {
         onBackPressed();
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        lockedAppInfos = getLockedAppInfo();
+        adapter.update(lockedAppInfos);
+        super.onResume();
     }
 
     private List<AppInfoBean> getLockedAppInfo() {

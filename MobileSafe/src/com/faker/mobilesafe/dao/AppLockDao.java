@@ -88,4 +88,33 @@ public class AppLockDao {
         }
     }
 
+    /**
+     * 事务添加一组数据
+     *
+     * @param packages
+     * @return
+     */
+    public boolean add(List<String> packages) {
+        boolean flag = false;
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        if (db.isOpen()) {
+            db.beginTransaction();
+            try {
+                for (String packageName : packages) {
+                    ContentValues values = new ContentValues();
+                    values.put("packageName",packageName);
+                    db.insertOrThrow(table,"_id",values);
+//                    db.execSQL("insert into " + table
+//                            + " ('packageName') values (" + packageName + ")");
+                }
+                db.setTransactionSuccessful();
+                flag = true;
+            } finally {
+                db.endTransaction();
+                db.close();
+            }
+        }
+        return flag;
+    }
+
 }

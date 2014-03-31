@@ -15,28 +15,17 @@
 
     <TextView
         android:id="@+id/appname"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10.0dip"
         android:layout_marginTop="4dip"
         android:layout_toRightOf="@id/appicon"
         android:text="app"
         android:textColor="#ff000000"
-        android:textSize="16.0sp" />
-
-    <TextView
-        android:id="@+id/memorysize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/appname"
-        android:layout_marginTop="2dip"
-        android:textColor="#88000000"
-        android:text="占用内存：78KB"
-        android:layout_below="@id/appname" >
-    </TextView>
+        android:textSize="18.0sp" />
 
     <ImageView
-        android:id="@+id/clear_check"
+        android:id="@+id/unlock_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

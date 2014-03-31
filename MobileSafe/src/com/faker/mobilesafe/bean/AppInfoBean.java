@@ -10,6 +10,16 @@ public class AppInfoBean {
 	private String packageName;
 	private boolean isUserApp;
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean isChecked) {
+        this.isChecked = isChecked;
+    }
+
+    private boolean isChecked;
+
 	public AppInfoBean(Bitmap appIcon, String appName, String appVersion,
 			String packageName, boolean isUserApp) {
 		super();
