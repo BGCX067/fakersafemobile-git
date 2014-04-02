@@ -162,6 +162,8 @@ public class TaskManagerActivity extends Activity implements OnClickListener,
 				totalTasks.remove(bean);
 			}
 		}
+        selectedCount = 0;
+        clearButton.setEnabled(false);
 		adapter.update(unKillTasks, adviceKillTasks);
 	}
 }

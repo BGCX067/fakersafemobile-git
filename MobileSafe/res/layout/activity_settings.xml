@@ -1,168 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/set_color"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/set_color"
+              android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:background="@drawable/header_bg" >
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:background="@drawable/header_bg">
 
         <Button
-            android:layout_width="50dip"
-            android:layout_height="30dip"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dip"
-            android:background="@drawable/back_btn_selector"
-            android:gravity="center"
-            android:onClick="onBack"
-            android:text="返回"
-            android:textColor="@color/dialog_text"
-            android:textSize="16sp" />
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/back_btn_selector"
+                android:gravity="center"
+                android:onClick="onBack"
+                android:text="返回"
+                android:textColor="@color/dialog_text"
+                android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/header_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dip"
-            android:text="@string/settings_title"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+                android:id="@+id/header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dip"
+                android:text="@string/settings_title"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
     </RelativeLayout>
-    
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10.0dip"
-        android:layout_marginRight="10.0dip"
-        android:layout_marginTop="3.0dip"
-        android:background="@drawable/shape_bg"
-        android:orientation="vertical" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="3.0dip"
+            android:background="@drawable/shape_bg"
+            android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dip"
-            android:layout_marginTop="2.0dip" >
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_marginTop="2.0dip">
 
             <TextView
-                style="@style/hightools_item_text_style"
-                android:text="@string/settings_isauto_update" />
+                    style="@style/hightools_item_text_style"
+                    android:text="@string/settings_isauto_update"/>
 
             <TextView
-                android:id="@+id/setting_update_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dip"
-                android:gravity="center"
-                android:text="@string/settings_state_on" />
+                    android:id="@+id/setting_update_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_on"/>
 
             <ImageView
-                android:id="@+id/settings_update_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dip"
-                android:layout_toLeftOf="@id/setting_update_text"
-                android:src="@drawable/switch_on_normal" />
+                    android:id="@+id/settings_update_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/setting_update_text"
+                    android:src="@drawable/switch_on_normal"/>
         </RelativeLayout>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/set_color" />
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/set_color"/>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dip" >
+                android:layout_width="match_parent"
+                android:layout_height="40dip">
 
             <TextView
-                style="@style/hightools_item_text_style"
-                android:text="@string/settings_isauto_ip" />
+                    style="@style/hightools_item_text_style"
+                    android:text="@string/settings_isauto_ip"/>
 
             <TextView
-                android:id="@+id/setting_autoip_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dip"
-                android:gravity="center"
-                android:text="@string/settings_state_off" />
+                    android:id="@+id/setting_autoip_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_off"/>
 
             <ImageView
-                android:id="@+id/settings_autoip_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dip"
-                android:layout_toLeftOf="@id/setting_autoip_text"
-                android:src="@drawable/switch_off_normal" />
+                    android:id="@+id/settings_autoip_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/setting_autoip_text"
+                    android:src="@drawable/switch_off_normal"/>
         </RelativeLayout>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/set_color" />
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/set_color"/>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dip" >
+                android:layout_width="match_parent"
+                android:layout_height="40dip">
 
             <TextView
-                style="@style/hightools_item_text_style"
-                android:text="@string/settings_address_open" />
+                    style="@style/hightools_item_text_style"
+                    android:text="@string/settings_address_open"/>
 
             <TextView
-                android:id="@+id/setting_address_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dip"
-                android:gravity="center"
-                android:text="@string/settings_state_off" />
+                    android:id="@+id/setting_address_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_off"/>
 
             <ImageView
-                android:id="@+id/settings_address_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dip"
-                android:layout_toLeftOf="@id/setting_address_text"
-                android:src="@drawable/switch_off_normal" />
+                    android:id="@+id/settings_address_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/setting_address_text"
+                    android:src="@drawable/switch_off_normal"/>
         </RelativeLayout>
-        
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/set_color" />
-        
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/set_color"/>
+
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dip" >
+                android:layout_width="match_parent"
+                android:layout_height="40dip">
 
             <TextView
-                style="@style/hightools_item_text_style"
-                android:text="@string/settings_intecpter_open" />
+                    style="@style/hightools_item_text_style"
+                    android:text="@string/settings_intecpter_open"/>
 
             <TextView
-                android:id="@+id/setting_intecpter_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dip"
-                android:gravity="center"
-                android:text="@string/settings_state_on" />
+                    android:id="@+id/setting_intecpter_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_on"/>
 
             <ImageView
-                android:id="@+id/settings_intecpter_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dip"
-                android:layout_toLeftOf="@id/setting_intecpter_text"
-                android:src="@drawable/switch_on_normal" />
+                    android:id="@+id/settings_intecpter_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/setting_intecpter_text"
+                    android:src="@drawable/switch_on_normal"/>
         </RelativeLayout>
-        
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/set_color"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip">
+
+            <TextView
+                    style="@style/hightools_item_text_style"
+                    android:text="是否开启程序锁服务"/>
+
+            <TextView
+                    android:id="@+id/setting_app_lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_on"/>
+
+            <ImageView
+                    android:id="@+id/settings_applock_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/setting_app_lock"
+                    android:src="@drawable/switch_on_normal"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

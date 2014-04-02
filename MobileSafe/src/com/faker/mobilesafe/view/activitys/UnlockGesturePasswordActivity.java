@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.faker.mobilesafe.MobilesafeApplication;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.util.LockPatternUtils;
 import com.faker.mobilesafe.view.ui.LockPatternView;
@@ -29,6 +30,8 @@ public class UnlockGesturePasswordActivity extends Activity {
 	private Animation mShakeAnim;
 
 	private Toast mToast;
+
+    private MobilesafeApplication application;
 
 	private void showToast(CharSequence message) {
 		if (null == mToast) {
@@ -52,13 +55,15 @@ public class UnlockGesturePasswordActivity extends Activity {
 		mLockPatternView.setTactileFeedbackEnabled(true);
 		mHeadTextView = (TextView) findViewById(R.id.gesturepwd_unlock_text);
 		mShakeAnim = AnimationUtils.loadAnimation(this, R.animator.shake_x);
+
+        application = MobilesafeApplication.getInstance(this);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		if (!App.getInstance().getLockPatternUtils().savedPatternExists()) {
+		if (!application.getLockPatternUtils().savedPatternExists()) {
 			startActivity(new Intent(this, GuideGesturePasswordActivity.class));
 			finish();
 		}
@@ -90,7 +95,7 @@ public class UnlockGesturePasswordActivity extends Activity {
 		public void onPatternDetected(List<LockPatternView.Cell> pattern) {
 			if (pattern == null)
 				return;
-			if (App.getInstance().getLockPatternUtils().checkPattern(pattern)) {
+			if (application.getLockPatternUtils().checkPattern(pattern)) {
 				mLockPatternView
 						.setDisplayMode(LockPatternView.DisplayMode.Correct);
 				Intent intent = new Intent(UnlockGesturePasswordActivity.this,

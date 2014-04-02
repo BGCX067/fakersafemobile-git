@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.faker.mobilesafe.MobilesafeApplication;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.deal.ConstConfig;
 import com.faker.mobilesafe.deal.SafeSharedpreference;
@@ -413,7 +414,7 @@ public class CreateGesturePasswordActivity extends Activity implements
 	}
 
 	private void saveChosenPatternAndFinish() {
-		App.getInstance().getLockPatternUtils().saveLockPattern(mChosenPattern);
+		MobilesafeApplication.getInstance(this).getLockPatternUtils().saveLockPattern(mChosenPattern);
 		SafeSharedpreference.save(this, ConstConfig.LOCK_PATTERN, true);
 		showToast("密码设置成功");
 		startActivity(new Intent(this,AppLockActivity.class));

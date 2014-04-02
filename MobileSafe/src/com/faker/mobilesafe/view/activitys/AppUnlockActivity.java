@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.*;
+import com.faker.mobilesafe.MobilesafeApplication;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.AppInfoBean;
 import com.faker.mobilesafe.dao.AppLockDao;
@@ -51,10 +52,10 @@ public class AppUnlockActivity extends Activity implements AdapterView.OnItemCli
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case FINISH:
                     rlloading.setVisibility(View.GONE);
-                    adapter = new AppUnlockAdapter(getApplicationContext(),totalApps);
+                    adapter = new AppUnlockAdapter(getApplicationContext(), totalApps);
                     lv_unlock_app.setAdapter(adapter);
                     lv_unlock_app.setOnItemClickListener(AppUnlockActivity.this);
                     break;
@@ -77,16 +78,16 @@ public class AppUnlockActivity extends Activity implements AdapterView.OnItemCli
         rlloading = (RelativeLayout) findViewById(R.id.rl_loading);
 
         appInfoService = new AppInfoService(this);
-        dao = new AppLockDao(this);
+        dao = MobilesafeApplication.getInstance(this).getApplockDao();
         lockedApps = new ArrayList<String>();
 
         addlockapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dao.add(lockedApps);
-                for(int i=totalApps.size()-1;i>=0;i--){
+                for (int i = totalApps.size() - 1; i >= 0; i--) {
                     AppInfoBean bean = totalApps.get(i);
-                    if(dao.isLocked(bean.getPackageName())){
+                    if (dao.isLocked(bean.getPackageName())) {
                         totalApps.remove(i);
                     }
                 }
@@ -102,18 +103,18 @@ public class AppUnlockActivity extends Activity implements AdapterView.OnItemCli
         AppInfoBean bean = (AppInfoBean) adapter.getItem(position);
         String packageName = bean.getPackageName();
         ImageView checkBox = (ImageView) view.findViewById(R.id.unlock_check);
-        if(lockedApps.contains(packageName)){
+        if (lockedApps.contains(packageName)) {
             checkBox.setImageResource(R.drawable.checkbox_unchecked);
             bean.setChecked(false);
             lockedApps.remove(packageName);
-        }else{
+        } else {
             checkBox.setImageResource(R.drawable.checkbox_checked);
             bean.setChecked(true);
             lockedApps.add(packageName);
         }
-        if(lockedApps.size() > 0){
+        if (lockedApps.size() > 0) {
             addlockapp.setEnabled(true);
-        }else{
+        } else {
             addlockapp.setEnabled(false);
         }
     }

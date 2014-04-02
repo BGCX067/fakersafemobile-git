@@ -8,10 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.faker.mobilesafe.MobilesafeApplication;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.AppInfoBean;
 import com.faker.mobilesafe.dao.AppLockDao;
-import com.faker.mobilesafe.view.activitys.AppLockActivity;
 
 import java.util.List;
 
@@ -24,39 +24,39 @@ public class AppLockedAdapter extends BaseAdapter {
     public AppLockedAdapter(Context context, List<AppInfoBean> lockedAppInfos) {
         this.lockedAppInfos = lockedAppInfos;
         inflater = LayoutInflater.from(context);
-        dao = new AppLockDao(context);
+        dao = MobilesafeApplication.getInstance(context).getApplockDao();
     }
 
     @Override
-	public int getCount() {
-		// TODO Auto-generated method stub
-		return lockedAppInfos.size();
-	}
+    public int getCount() {
+        // TODO Auto-generated method stub
+        return lockedAppInfos.size();
+    }
 
-	@Override
-	public Object getItem(int position) {
-		// TODO Auto-generated method stub
-		return lockedAppInfos.get(position);
-	}
+    @Override
+    public Object getItem(int position) {
+        // TODO Auto-generated method stub
+        return lockedAppInfos.get(position);
+    }
 
-	@Override
-	public long getItemId(int position) {
-		// TODO Auto-generated method stub
-		return position;
-	}
+    @Override
+    public long getItemId(int position) {
+        // TODO Auto-generated method stub
+        return position;
+    }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // TODO Auto-generated method stub
         ViewHolder holder = null;
-        if(convertView == null){
+        if (convertView == null) {
             holder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.app_locked_item,null);
+            convertView = inflater.inflate(R.layout.app_locked_item, null);
             holder.appIcon = (ImageView) convertView.findViewById(R.id.appicon);
             holder.appName = (TextView) convertView.findViewById(R.id.appname);
             holder.delete = (Button) convertView.findViewById(R.id.delete);
             convertView.setTag(holder);
-        }else{
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         final AppInfoBean bean = lockedAppInfos.get(position);
@@ -70,15 +70,15 @@ public class AppLockedAdapter extends BaseAdapter {
                 notifyDataSetChanged();
             }
         });
-		return convertView;
-	}
+        return convertView;
+    }
 
     public void update(List<AppInfoBean> lockedAppInfos) {
         this.lockedAppInfos = lockedAppInfos;
         notifyDataSetChanged();
     }
 
-    private final class ViewHolder{
+    private final class ViewHolder {
         private ImageView appIcon;
         private TextView appName;
         private Button delete;

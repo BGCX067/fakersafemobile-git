@@ -7,16 +7,15 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.AppInfoBean;
 import com.faker.mobilesafe.dao.AppLockDao;
 import com.faker.mobilesafe.util.ImageUtil;
 import com.faker.mobilesafe.view.ui.adapter.AppLockedAdapter;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;

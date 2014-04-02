@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.faker.mobilesafe.db.AppLockDBHelper;
+import com.faker.mobilesafe.inter.IService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,29 @@ import java.util.List;
 public class AppLockDao {
     private AppLockDBHelper mOpenHelper = null;
     private final static String table = "applock";
+    private List<IService> observers;
 
     public AppLockDao(Context context) {
         mOpenHelper = AppLockDBHelper.getInstance(context);
+        observers = new ArrayList<IService>();
+    }
+
+    /**
+     * 注册一个观察者
+     *
+     * @param observer
+     */
+    public void addObserver(IService observer) {
+        observers.add(observer);
+    }
+
+    /**
+     * 取消注册
+     *
+     * @param observer
+     */
+    public void delObserver(IService observer) {
+        observers.remove(observer);
     }
 
     /**
@@ -70,6 +91,7 @@ public class AppLockDao {
         if (db.isOpen()) {
             db.delete(table, "packageName = ?", new String[]{packageName});
             db.close();
+            notifyChange();
         }
     }
 
@@ -85,6 +107,7 @@ public class AppLockDao {
             values.put("packageName", packageName);
             db.insert(table, "_id", values);
             db.close();
+            notifyChange();
         }
     }
 
@@ -102,8 +125,8 @@ public class AppLockDao {
             try {
                 for (String packageName : packages) {
                     ContentValues values = new ContentValues();
-                    values.put("packageName",packageName);
-                    db.insertOrThrow(table,"_id",values);
+                    values.put("packageName", packageName);
+                    db.insertOrThrow(table, "_id", values);
 //                    db.execSQL("insert into " + table
 //                            + " ('packageName') values (" + packageName + ")");
                 }
@@ -113,8 +136,19 @@ public class AppLockDao {
                 db.endTransaction();
                 db.close();
             }
+            if (flag == true)
+                notifyChange();
         }
         return flag;
+    }
+
+    /**
+     * 通知观察者内容更新
+     */
+    private void notifyChange() {
+        for (IService observer : observers) {
+            observer.update();
+        }
     }
 
 }

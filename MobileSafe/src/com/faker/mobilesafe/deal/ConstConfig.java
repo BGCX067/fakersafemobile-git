@@ -18,6 +18,7 @@ public class ConstConfig {
 	public static final String ISINITDB = "is_init_db"; // 是否初始化归属地数据库
 	public static final String ISOPENADRESS = "is_address_open"; // 是否开启归属地服务
 	public static final String ISINTECPTER = "is_intecpter"; // 是否开启拦截服务
+	public static final String ISAPPLOCK = "is_applock"; // 是否开启拦截服务
 	public static final String ISLOSTFIRST = "is_lost_first"; // 是否是第一次登陆手机防盗
 	public static final String ISAUTOIP = "is_auto_ip"; // 是否开启ip自动拨号
 	public static final String IPNUMBER = "ipnumber"; // 是否开启ip自动拨号
