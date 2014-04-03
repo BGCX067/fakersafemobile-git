@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.util.Log;
 import android.widget.*;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.bean.CallLogBean;
@@ -114,10 +115,14 @@ public class CallLogActivity extends ListActivity implements OnClickListener {
             bean.setNumber(number);
             // 根据电话号码查询归属地信息
             String address = dao.queryAddress(number);
-            if (address.indexOf("黑龙江") > 0) {
-                address = address.substring(0, 5);
-            } else {
-                address = address.substring(0, 4);
+            boolean isPhone = number.matches("^1[358]\\d{9}$");
+            Log.i("address",address);
+            if(isPhone){
+                if (address.indexOf("黑龙江") > 0) {
+                    address = address.substring(0, 5);
+                } else {
+                    address = address.substring(0, 4);
+                }
             }
             bean.setAddress(address);
             // 转换日期并记录

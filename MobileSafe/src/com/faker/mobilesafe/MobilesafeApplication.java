@@ -11,6 +11,8 @@ public class MobilesafeApplication {
     private LockPatternUtils mLockPatternUtils;
     private static AppLockDao mdao;
     private String packageName;
+    // 线程同步锁
+    private final Object lock = new Object();
 
     private MobilesafeApplication(Context context){
         mLockPatternUtils = new LockPatternUtils(context);
@@ -38,5 +40,21 @@ public class MobilesafeApplication {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public void Lock(){
+        synchronized(lock){
+            try {
+                lock.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void unLock(){
+        synchronized(lock){
+            lock.notifyAll();
+        }
     }
 }

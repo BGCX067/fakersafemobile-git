@@ -54,7 +54,7 @@ public class PhoneAddressQueryDao {
 				if (number.length() == 14) {
 					number = number.substring(3, 14);
 				}
-				Log.i("lichfaker", number);
+//				Log.i("lichfaker", number);
 				boolean isPhone = number.matches("^1[358]\\d{9}$");
 				if (isPhone) {
 					// 查询的是手机号码,号码前七位表示归属地

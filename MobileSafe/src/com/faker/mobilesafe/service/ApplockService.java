@@ -1,11 +1,11 @@
 package com.faker.mobilesafe.service;
 
 import android.app.ActivityManager;
-import android.app.KeyguardManager;
 import android.app.Service;
 import android.content.*;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.util.Log;
 import com.faker.mobilesafe.MobilesafeApplication;
@@ -26,16 +26,18 @@ public class ApplockService extends Service {
     private MyContentObserver observer;
     private MobilesafeApplication application;
     //手机锁屏和解锁知道的服务
-    private KeyguardManager keyguardManager;
-
-    private LockScreenReceiver receiver;
+//    private KeyguardManager keyguardManager;
+    private PowerManager powerManager;
+    private LockScreenReceiver lockScreenReceiver;
+    private ScreenonReceiver screenOnReceiver;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+//        keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+        powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         application = MobilesafeApplication.getInstance(getApplicationContext());
         dao = application.getApplockDao();
         lockedAppList = dao.findAll();
@@ -45,23 +47,28 @@ public class ApplockService extends Service {
         //注册锁屏广播接收者
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
-        receiver = new LockScreenReceiver();
-        registerReceiver(receiver, filter);
-
+        lockScreenReceiver = new LockScreenReceiver();
+        registerReceiver(lockScreenReceiver, filter);
+        // 注册屏幕解锁广播接收者
+        IntentFilter filter1 = new IntentFilter();
+        filter1.addAction(Intent.ACTION_SCREEN_ON);
+        screenOnReceiver = new ScreenonReceiver();
+        registerReceiver(screenOnReceiver,filter1);
         new Thread() {
             @Override
             public void run() {
                 while (true) {
-                    boolean isLockScreen = keyguardManager.inKeyguardRestrictedInputMode();
-                    if(isLockScreen){
-                        SystemClock.sleep(1000);
+//                    boolean isLockScreen = keyguardManager.inKeyguardRestrictedInputMode();
+                    boolean isLockScreen = powerManager.isScreenOn();
+                    if(!isLockScreen){
+                        application.Lock();
                     }
                     List<ActivityManager.RunningTaskInfo> runningTaskInfos = activityManager.getRunningTasks(1);
                     ActivityManager.RunningTaskInfo runningTaskInfo = runningTaskInfos.get(0);
                     ComponentName componentName = runningTaskInfo.topActivity;
                     String packageName = componentName.getPackageName();
                     if (lockedAppList.contains(packageName)) {
-                        Log.i("lickfaker","temp:"+tempLockapp);
+//                        Log.i("lickfaker","temp:"+tempLockapp);
                         if (!packageName.equals(tempLockapp)) {
                             application.setPackageName(packageName);
                             Intent intent = new Intent(getApplicationContext(), EnterPasswordActivity.class);
@@ -106,11 +113,21 @@ public class ApplockService extends Service {
         }
     }
 
+    private final class ScreenonReceiver extends  BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            application.unLock();
+        }
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         dao.delObserver(observer);
         //取消锁屏的广播监听
-        unregisterReceiver(receiver);
+        unregisterReceiver(lockScreenReceiver);
+        // 取消屏幕解锁的广播监听
+        unregisterReceiver(screenOnReceiver);
     }
 }
