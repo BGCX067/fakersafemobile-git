@@ -34,6 +34,7 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.GET_TASKS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SMS"></uses-permission>
 
 
     <application
@@ -109,6 +110,7 @@
         <activity android:name="com.faker.mobilesafe.view.activitys.EnterPasswordActivity"
                   android:launchMode="singleInstance"
                 />
+        <activity android:name=".view.activitys.KillVirusActivity"/>
 
         <receiver android:name=".receiver.PhoneOutReceiver">
             <intent-filter android:priority="1000">
@@ -145,6 +147,8 @@
         <service android:name=".service.BlackNumberService">
         </service>
         <service android:name=".service.ApplockService"/>
+        <service android:name=".service.BackupService"/>
+        <service android:name=".service.SmsRecaverService"/>
         <!-- <provider android:name="com.faker.mobilesafe.provider.ApplockProvider"
                   android:authorities="com.faker.mobilesafe.provider.ApplockProvider"></provider> -->
         <uses-library android:name="android.test.runner"/>

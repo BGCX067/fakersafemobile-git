@@ -94,7 +94,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 startActivity(intent);
                 break;
             case 3:// 手机杀毒
-                Toast(this, "3", 1);
+                intent = new Intent(this, KillVirusActivity.class);
+                startActivity(intent);
                 break;
             case 4:// 流量管理
                 Toast(this, "4", 1);
