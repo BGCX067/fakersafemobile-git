@@ -36,7 +36,6 @@
         android:layout_marginRight="10dip"
         android:textColor="@color/dialog_text"
         android:textSize="16.0sp"
-        android:text="1.0"
         />
 
 </RelativeLayout>
