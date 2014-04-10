@@ -194,6 +194,37 @@
                     android:src="@drawable/switch_on_normal"/>
         </RelativeLayout>
 
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/set_color"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip">
+
+            <TextView
+                    style="@style/hightools_item_text_style"
+                    android:text="是否开启流量监控服务"/>
+
+            <TextView
+                    android:id="@+id/traffic_lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:gravity="center"
+                    android:text="@string/settings_state_on"/>
+
+            <ImageView
+                    android:id="@+id/traffic_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dip"
+                    android:layout_toLeftOf="@id/traffic_lock"
+                    android:src="@drawable/switch_on_normal"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

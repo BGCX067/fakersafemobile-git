@@ -15,6 +15,7 @@ import com.faker.mobilesafe.deal.SafeSharedpreference;
 import com.faker.mobilesafe.service.ApplockService;
 import com.faker.mobilesafe.service.BlackNumberService;
 import com.faker.mobilesafe.service.ShowAddressService;
+import com.faker.mobilesafe.service.TrafficService;
 import com.faker.mobilesafe.view.ui.adapter.GVAdapter;
 
 public class MainActivity extends BaseActivity implements OnItemClickListener {
@@ -49,6 +50,9 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 ConstConfig.ISINTECPTER, true);
         boolean isApplock = SafeSharedpreference.getBoolean(this,
                 ConstConfig.ISAPPLOCK, true);
+        boolean isTraffic = SafeSharedpreference.getBoolean(this,
+                ConstConfig.ISTRAFFIC, true);
+
         if (isUpdate) {
             // 开启版本更新检测后台服务
             new CheckupdateThread(this).connect();
@@ -65,6 +69,10 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         }
         if (isApplock) {
             Intent intent = new Intent(this, ApplockService.class);
+            startService(intent);
+        }
+        if (isTraffic) {
+            Intent intent = new Intent(this, TrafficService.class);
             startService(intent);
         }
 
@@ -98,7 +106,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 startActivity(intent);
                 break;
             case 4:// 流量管理
-                Toast(this, "4", 1);
+                intent = new Intent(this, TrafficActivity.class);
+                startActivity(intent);
                 break;
             case 5:// 系统优化
                 Toast(this, "5", 1);

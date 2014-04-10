@@ -3,6 +3,7 @@ package com.faker.mobilesafe.view.activitys;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class AddIPActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.add_ip);
 		initData();
 		initUI();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 	}
 
 	/**

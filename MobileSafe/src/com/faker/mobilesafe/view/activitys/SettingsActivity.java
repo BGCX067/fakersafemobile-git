@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.faker.mobilesafe.service.TrafficService;
 
 public class SettingsActivity extends BaseActivity implements OnClickListener {
 
@@ -31,11 +32,15 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
     private ImageView iv_applock;
     private TextView tv_applock;
 
+    private ImageView iv_trafficlock;
+    private TextView tv_trafficlock;
+
     private boolean isUpdate;
     private boolean isAutoip;
     private boolean isAdress;
     private boolean isIntecpter;
     private boolean isApplock;
+    private boolean isTraffic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,7 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
                 ConstConfig.ISINTECPTER, true);
         isApplock = SafeSharedpreference.getBoolean(this,
                 ConstConfig.ISAPPLOCK, true);
+        isTraffic = SafeSharedpreference.getBoolean(this, ConstConfig.ISTRAFFIC, true);
     }
 
     private void initUI() {
@@ -114,6 +120,17 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
             tv_applock.setText(R.string.settings_state_off);
         }
         iv_applock.setOnClickListener(this);
+
+        iv_trafficlock = getView(R.id.traffic_switch);
+        tv_trafficlock = getView(R.id.traffic_lock);
+        if (isTraffic) {
+            iv_trafficlock.setImageResource(R.drawable.switch_on_normal);
+            tv_trafficlock.setText(R.string.settings_state_on);
+        } else {
+            iv_trafficlock.setImageResource(R.drawable.switch_off_normal);
+            tv_trafficlock.setText(R.string.settings_state_off);
+        }
+        iv_trafficlock.setOnClickListener(this);
     }
 
     public void onBack(View v) {
@@ -199,6 +216,23 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
                 }
                 SafeSharedpreference.save(this, ConstConfig.ISAPPLOCK,
                         isApplock);
+                break;
+            case R.id.traffic_switch: // 流量监控服务
+                if (isTraffic) {
+                    iv_trafficlock.setImageResource(R.drawable.switch_off_normal);
+                    tv_trafficlock.setText(R.string.settings_state_off);
+                    isTraffic = false;
+                    Intent intent = new Intent(this, TrafficService.class);
+                    stopService(intent);
+                } else {
+                    iv_trafficlock.setImageResource(R.drawable.switch_on_normal);
+                    tv_trafficlock.setText(R.string.settings_state_on);
+                    isTraffic = true;
+                    Intent intent = new Intent(this, TrafficService.class);
+                    startService(intent);
+                }
+                SafeSharedpreference.save(this, ConstConfig.ISTRAFFIC,
+                        isTraffic);
                 break;
             default:
                 break;

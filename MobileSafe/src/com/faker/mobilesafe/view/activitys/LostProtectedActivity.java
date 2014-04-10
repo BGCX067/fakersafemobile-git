@@ -1,5 +1,6 @@
 package com.faker.mobilesafe.view.activitys;
 
+import android.view.WindowManager;
 import com.faker.mobilesafe.R;
 import com.faker.mobilesafe.deal.ConstConfig;
 import com.faker.mobilesafe.deal.SafeSharedpreference;
@@ -42,6 +43,7 @@ public class LostProtectedActivity extends BaseActivity implements TextWatcher,
 		login_pwd = getView(R.id.lost_procted_login_password);
 		login_name.addTextChangedListener(this);
 		login_pwd.addTextChangedListener(this);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 	}
 
 	@Override

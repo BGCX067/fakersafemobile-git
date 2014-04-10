@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,6 +38,8 @@ public class BlackNumInputActivity extends Activity implements OnClickListener,
 		tv_isBlack.setText("");
 		add_comfirm.setOnClickListener(this);
 		blackNumberEdit.addTextChangedListener(this);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 	}
 
 	public void onBack(View v) {

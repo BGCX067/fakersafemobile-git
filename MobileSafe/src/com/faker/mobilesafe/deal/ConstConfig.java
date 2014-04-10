@@ -11,7 +11,6 @@ public class ConstConfig {
 	public static final String SPNAME = "config"; // SharedPrefence文件名
 	public static final String ISUPDATE = "update"; // 是否检查更新
 	public static final String APKURL = "http://115.200.123.173/mobilesafe/update.xml"; // apk更新xml文件地址
-	public static final String ADDRESSURL = "http://192.168.1.102/mobilesafe/address.db"; // 手机归属地数据库
 	public static final String USERNAME = "username";
 	public static final String PASSWORD = "password";
 
@@ -40,5 +39,9 @@ public class ConstConfig {
 
 	public static final String FLOATVIEW_X = "floatview_x"; // 来电归属地悬浮窗口位置
 	public static final String FLOATVIEW_Y = "floatview_y"; // 来电归属地悬浮窗口位置
+
+    public static final String TRAFFIC_SET = "traffic_set";
+    public static final String TRAFFIC_MOBILE_TOTAL = "mobile_total";
+    public static final String ISTRAFFIC = "is_traffic_service";
 
 }
