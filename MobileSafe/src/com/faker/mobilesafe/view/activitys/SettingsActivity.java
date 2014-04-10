@@ -1,6 +1,9 @@
 package com.faker.mobilesafe.view.activitys;
 
+import android.widget.LinearLayout;
+import android.widget.Toast;
 import com.faker.mobilesafe.R;
+import com.faker.mobilesafe.deal.CheckupdateThread;
 import com.faker.mobilesafe.deal.ConstConfig;
 import com.faker.mobilesafe.deal.SafeSharedpreference;
 import com.faker.mobilesafe.service.ApplockService;
@@ -34,6 +37,8 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
 
     private ImageView iv_trafficlock;
     private TextView tv_trafficlock;
+
+    private LinearLayout check_update;
 
     private boolean isUpdate;
     private boolean isAutoip;
@@ -131,6 +136,9 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
             tv_trafficlock.setText(R.string.settings_state_off);
         }
         iv_trafficlock.setOnClickListener(this);
+
+        check_update = getView(R.id.check_update);
+        check_update.setOnClickListener(this);
     }
 
     public void onBack(View v) {
@@ -233,6 +241,12 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
                 }
                 SafeSharedpreference.save(this, ConstConfig.ISTRAFFIC,
                         isTraffic);
+                break;
+            case R.id.check_update:
+                Toast(this, "正在检查更新...", Toast.LENGTH_SHORT);
+                CheckupdateThread t = new CheckupdateThread(this);
+                t.setShowModle(true);
+                t.connect();
                 break;
             default:
                 break;

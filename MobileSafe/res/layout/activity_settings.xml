@@ -227,4 +227,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+            android:id="@+id/check_update"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="8.0dip"
+            android:background="@drawable/shape_bg"
+            android:orientation="horizontal">
+
+        <TextView
+                style="@style/hightools_item_text_style"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="手动检查更新"/>
+
+        <ImageView
+                style="@style/hightools_item_intoicon_style"
+                android:layout_gravity="center_vertical"
+                android:scaleX="0.6"
+                android:scaleY="0.6"/>
+    </LinearLayout>
+
 </LinearLayout>
