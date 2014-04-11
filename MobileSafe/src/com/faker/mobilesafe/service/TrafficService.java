@@ -31,11 +31,11 @@ public class TrafficService extends Service {
     private String time;
     private long total;
     private NetworkHelper networkHelper;
+
     @Override
     public void onCreate() {
         super.onCreate();
         dao = new TrafficDao(getApplicationContext());
-        bean = dao.findAll();
 
         total = Long.valueOf(SafeSharedpreference.getString(getApplicationContext(),
                 ConstConfig.TRAFFIC_MOBILE_TOTAL, "0")) * 1024 * 1024;
@@ -52,17 +52,33 @@ public class TrafficService extends Service {
 //        }
 //        boolean b2 = networkHelper.isMobileConnected();
 //        Log.i("lichfaker", "next:" + b2);
-        new Thread(){
+        boolean isInit = SafeSharedpreference.getBoolean(this, "traffic_init", false);
+        if (!isInit) {
+            /** 获取手机通过 2G/3G 发出的字节流量总数 */
+            long currMobileTx = TrafficStats.getMobileTxBytes();
+            /** 获取手机通过 2G/3G 接收的字节流量总数 */
+            long currMobileRx = TrafficStats.getMobileRxBytes();
+            /** 获取手机通过wifi接收的字节流量 */
+            long currWifiRx = TrafficStats.getTotalRxBytes() - currMobileRx;
+            long /** 获取手机通过wifi发出的字节流量 */
+                    currWifiTx = TrafficStats.getTotalTxBytes() - currMobileTx;
+            dao.insert(currMobileTx, currMobileRx, currWifiTx, currWifiRx);
+            SafeSharedpreference.save(this, "traffic_init", true);
+        }
+
+        bean = dao.findAll();
+
+        new Thread() {
             @Override
             public void run() {
-                while(true){
+                while (true) {
                     /** 获取手机通过 2G/3G 发出的字节流量总数 */
                     long currMobileTx = TrafficStats.getMobileTxBytes();
                     /** 获取手机通过 2G/3G 接收的字节流量总数 */
                     long currMobileRx = TrafficStats.getMobileRxBytes();
 
                     String current = FormatUtil.formatDate(System.currentTimeMillis());
-                    if(time.equals(current)){
+                    if (time.equals(current)) {
                         time = calcFirstMouthDay();
                         bean.setMobileTx(currMobileTx);
                         bean.setMobileRx(currMobileRx);
@@ -72,14 +88,14 @@ public class TrafficService extends Service {
 
                     long dx = currMobileRx + currMobileTx - bean.getMobileTx() -
                             bean.getMobileRx() + bean.getOffset();
-                    if(dx >= total){
+                    if (dx >= total) {
                         // 使用量达到最大限度
-                        if(networkHelper.isMobileConnected()){
+                        if (networkHelper.isMobileConnected()) {
                             try {
                                 networkHelper.setMobileDataEnabled(false);
                             } catch (Exception e) {
                                 Looper.prepare();
-                                Toast.makeText(getApplicationContext(),"您当前使用流量超标",
+                                Toast.makeText(getApplicationContext(), "您当前使用流量超标",
                                         Toast.LENGTH_SHORT).show();
                                 SystemClock.sleep(1000);
                                 networkHelper.setNetwork();
